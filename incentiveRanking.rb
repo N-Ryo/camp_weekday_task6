@@ -21,13 +21,13 @@
     n = f.gets.to_i
     # 2行目をarray型として取得
     members = f.gets.split
-    # 空の配列 @results を定義
-    @results = {}
+    # 空の配列 results を定義
+    results = {}
     
     # n回ループを使ってキーにmembersの値を、バリューに 0 を持つ配列 @results を生成する。
     # @resultsの初期化
     n.times do |i|
-      @results[members[i]] = 0
+      results[members[i]] = 0
     end
     # 3行目をint型として取得
     m = f.gets.to_i
@@ -35,11 +35,11 @@
     m.times do |i|
       cost = f.gets.split
       #@resultsから cost[0]を探しだし、valueにcost[1]を追加していく。
-      @results[cost[0]] += cost[1].to_i
+      results[cost[0]] += cost[1].to_i
     end
     # 全ての入力処理が終わったところで、ソートを行い、降順にする。
     # sort_byメソッドは配列クラスへ自動変換してしまうので、Hash型へ変更し直す。
-    p @results.sort_by{ | k, v | v }.reverse.to_h
+    p results.sort_by{ | k, v | v }.reverse.to_h
   }
 end
 
